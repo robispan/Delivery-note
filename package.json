@@ -1,7 +1,7 @@
 {
-  "name": "dobavnica",
+  "name": "delivery-note",
   "version": "1.0.0",
-  "description": "dobavnica",
+  "description": "delivery-note",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
