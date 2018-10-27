@@ -6,10 +6,10 @@ Local JSON file that stores clients/tools data is automatically generated at [us
 
 ## Instructions
 
-### General
+### Set up
 - edit index.html file to enter your company information in div.user-data and address in div#data .row p
 
-### Inside program
+### Program usage
 
 #### CLIENT DATA (TOP LEFT)
 
