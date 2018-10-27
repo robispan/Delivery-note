@@ -2,7 +2,7 @@
 Electron desktop app for making delivery notes with autocomplete Client / Product fields.
 Input fields are automatically filled in when Client / Tool name or code is selected.
 Twitter Typeahead is used for rendering suggestions.
-Local JSON file that stores clients/tools data is automatically generated at [user]\AppData\Roaming\delivery-note\storage.
+Local JSON file that stores client/tool data is automatically generated in the operating system application data directory (see: https://www.npmjs.com/package/electron-json-storage).
 
 ## Instructions
 
