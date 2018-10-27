@@ -1,0 +1,475 @@
+/* +++++++++++++++++ GENERAL STYLES +++++++++++++++++ */
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background: #fcfcfc;
+}
+
+p {
+    margin: 0 5px 0 0;
+    line-height: 1.3em;
+}
+
+button {
+    display: block;
+    cursor: pointer; 
+    font-family: inherit;
+    font-size: inherit;
+    background: #fff;
+    border: none;
+    color: #008dc5;
+    padding: 10px 0;
+    outline: none;
+}
+
+input {
+    width: 150px;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    border: 1px solid #777;
+    padding: 5px 4px;
+    border-radius: 1px;
+    margin: 1px 0;
+}
+
+input:focus {
+    outline: 0 !important;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* +++++++++++++++++ MAIN CONTAINER +++++++++++++++++ */
+
+.container {
+    min-width: 830px;
+    max-width: 900px;
+    margin: 50px auto;
+    position: relative;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        margin: 35px 50px;
+    }
+}
+
+/* +++++++++++++++++ USER COMPANY INFO (PRINT ONLY) +++++++++++++++++ */
+
+.user-data {
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    text-align: center;
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    font-size: 1.1em;
+    padding: 2px 0;
+}
+
+/* +++++++++++++++++ MAIN TITLE +++++++++++++++++ */
+
+h2 {
+    background: #ddd;
+    padding: 7px 5px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+/* +++++++++++++++++ TOP SECTION +++++++++++++++++ */
+
+.under-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    position: relative;
+}
+
+#companies, #data {
+    position: relative;
+}
+
+/* +++++++++++++++++ TOP LEFT SECTION +++++++++++++++++ */
+
+#companies {
+    margin-top: 25px;
+    width: 450px;
+}
+
+#form-firms {
+    display: flex;
+    justify-content: space-between;
+}
+
+#companies .right input {
+    width: 140px;
+}
+
+#companies .right .twitter-typeahead {
+    width: 55px;
+}
+
+#companies .firm-code p {
+    width: 120px;
+}
+
+#companies .firm-code input {
+    width: 24px;
+    height: 12px;
+}
+
+#addFirm {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    padding: 3px 6px;
+    font-size: 1.2em;
+    cursor: pointer; 
+    color: #008dc5;
+    z-index: 100;
+}
+
+#companies .vat {
+    margin-top: 20px;
+}
+
+input#vat {
+    box-sizing: border-box;
+    width: 100% !important;
+}
+
+#saveFirm {
+    background: none;
+    border: none;
+    margin: 6px 0;
+    padding: 0 2px;
+    color: #008dc5;
+}
+
+
+/* +++++++++++++++++ TOP RIGHT SECTION +++++++++++++++++ */
+
+#data {
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    position: relative;
+}
+
+#data .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#data .row p {
+    width: 40%;
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+
+#data .row input {
+    height: 17px;
+}
+
+#updateNr {
+    position: absolute;
+    top: 65px;
+    right: 4px;
+    padding: 0 6px;
+    font-size: 1.2em;
+    cursor: pointer; 
+    color: #008dc5;
+}
+
+/* +++++++++++++++++ TABLE SECTION +++++++++++++++++ */
+
+.table-container {
+    margin: 70px auto 20px;
+    position: relative;
+}
+
+#table {
+    margin: auto;
+    width: 97%;
+    border: 1px solid #777;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #777;
+}
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.item,
+.heading {
+    border-right: 1px solid #777;
+}
+.item:nth-child(6),
+.heading:last-child {
+    border-right: 1px solid #fff;
+}
+
+.heading {
+    font-size: 0.85em;
+}
+
+.table-input {
+    box-sizing: border-box;
+    border: none;
+    width: calc(100% - 1px);
+    margin: 1px;
+    padding: 6px;
+}
+
+.heading .table-input {
+    font-weight: 600;
+}
+
+.flex-1 {
+    flex: 8;
+}
+.flex-2 {
+    flex: 15;
+}
+.flex-3 {
+    flex: 20;
+}
+.flex-4 {
+    flex: 30;
+}
+
+/* Add and remove table row buttons above table */
+
+#add-row,
+#remove-row {
+    padding: 2px;
+    height: 20px;
+    width: 20px;
+    line-height: 1px;
+    display: inline-block;
+    background: #fff;
+    color: #008dc5;
+    border: 1px solid #3394d4;
+    border-radius: 2px;
+    position: absolute;
+    top: -28px;
+}
+
+#add-row {
+    left: 10px;
+}
+
+#remove-row {
+    left: 36px;
+}
+
+#add-row:hover,
+#remove-row:hover {
+    background: #3394d4;
+    border-color: #3394d4;
+    color: white;
+}
+
+#add-row:active,
+#remove-row:active {
+    outline: none;
+    box-shadow: 0 0 2px 3px #8ad8e4;
+}
+
+#add-row:focus,
+#remove-row:focus {
+    outline: none;
+}
+
+/* Save tool buttons (+) on right table side */
+
+.tool-save {
+    position: absolute;
+    right: -15px;
+    box-sizing: content-box;
+    margin-top: 7px;
+    background: #fff;
+    border: 1px solid #008dc5;
+    color: #008dc5;
+    padding: 3px;
+    width: 11px;
+    height: 11px;
+    line-height: 0;
+    font-size: 13px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+/* Show element with transition */
+.show {
+    opacity: 1 !important;
+    transition: all 200ms;
+}
+
+/* +++++++++++++++++ PRINT PDF BUTTON +++++++++++++++++ */
+
+#save-pdf {
+    background: white;
+    font-size: 1.15em;
+    display: block;
+    margin: 40px auto;
+    padding: 7px 12px;
+    color: #008dc5;
+    border: 1px solid #3394d4;
+    border-radius: 4px;
+}
+
+#save-pdf:hover {
+    background: #3394d4;
+    border-color: #3394d4;
+    color: white;
+}
+
+#save-pdf:active {
+    outline: none;
+    box-shadow: 0 0 2px 3px #8ad8e4;
+}
+
+#save-pdf:focus {
+    outline: none;
+}
+
+
+/* +++++++++++++++++ FOOTER +++++++++++++++++ */
+
+.footer {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    display: none;
+    width: 100%;
+}
+
+.footer-item {
+    border-bottom: 1px solid black;
+    height: 70px;
+    width: 200px;
+}
+
+
+/* +++++++++++++++++ PRINT MEDIA STYLES +++++++++++++++++ */
+
+@media print {
+    .no-print {
+        display: none !important;
+    }  
+    body {
+        background-color: #fff;
+    }
+    .container {
+        margin: 0 20px;
+    }
+    h2 {
+        margin-bottom: 8px;
+    }
+    input {
+        width: 275px;
+        border: none !important;
+        padding: 0;
+        margin: 1px 0;
+    }
+    .user-data {
+        display: block;
+    }
+    #companies .left {
+        font-size: 1.3em;
+        margin-left: 20px;
+    }    
+    #data {
+        width: 340px;
+    }
+    #data .row p {
+        min-width: 140px;
+        padding-top: 0;
+        padding-bottom: 6px;
+        margin-right: 60px;
+    }
+    #table {
+        border-right: none;
+        border-left: none;
+        border-color: #444;
+    }
+    #table .table-row {
+        border-bottom: 1px solid #fff;
+    }
+    #table .table-row:first-child {
+        border-bottom: 1px solid #444;
+    }
+    #table .heading,
+    #table .item {
+        border-color: #444;
+    }
+    #table .item {
+        border-right: none;
+    }
+    #table .heading:last-child {
+        border-right: 1px solid #444;
+    }
+    #table .heading:first-child {
+        border-left: 1px solid #444;
+    }
+    #table .item {
+        border-color: #fff;
+    }
+    .footer {
+        display: flex;
+    }
+}
+
+
+/* +++++++++++++++++ TYPEAHEAD STYLES +++++++++++++++++ */
+
+/* Input element */
+.twitter-typeahead {
+    width: 100%;
+}
+
+/* Suggestions container */
+.tt-menu {
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(50,50,50, 0.2);
+    width: 150px;
+}
+
+/* Single suggestion */
+.tt-suggestion {
+    padding: 3px 10px;
+    margin: 3px 0;
+}
+
+.tt-suggestion:hover {
+    background: #0097cf;
+    color: #FFF;
+}
+
+.tt-suggestion.tt-cursor { 
+    color: #fff;
+    background-color: #0097cf;
+}

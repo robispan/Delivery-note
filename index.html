@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Delivery note</title>
+	<link rel="stylesheet" href="styles/animate.css">
+	<link rel="stylesheet" href="styles/style.css">
+
+	<!-- if either of these two is missing typeahead somehow does not work! -->
+	<script src="scripts/jquery-3.3.1.min.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+
+	<script src="scripts/typeahead.bundle.js"></script>
+	<script src="scripts/scripts.js"></script>
+	<script src="scripts/typeahead.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="user-data">
+			<ul>
+				<li>Company Name</li>
+				<li>Company Address</li>
+				<li>City</li>
+			</ul>
+		</div>
+
+		<div class="under-title">
+
+			<div id="companies">
+				<form id="form-firms">
+
+					<div class="left">
+						<div class="the-names">
+							<input name="name" placeholder="Name" class="typeahead" id="firmName" required>
+						</div>
+						<div class="street">
+							<input name="street" placeholder="Street" id="firmStreet" required>
+						</div>
+						<div class="address">
+							<input name="address" placeholder="Address" id="firmAddress" required>
+						</div>
+						<button type="submit" id="saveFirm" class="no-print" tabindex="-1">Save</button>
+					</div>
+
+					<div class="right">
+						<div id="addFirm" class="no-print">+</div>
+						<div class="firm-code flex-row">
+							<p>Customer Code</p>
+							<input name="num" class="typeahead" id="firmNum" required>
+						</div>
+						<div class="flex-row">
+							<p>Phone:</p>
+							<input name="phone" class="typeahead no-print" id="phone">
+						</div>
+						<div class="flex-row">
+							<p>Email:</p>
+							<input name="mail" class="typeahead no-print" id="mail">
+						</div>
+						<div class="vat">
+							<p>VAT ID Number</p>
+							<input name="vat" id="vat" required>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+			<div id="data">
+				<h2>Delivery Note</h2>
+				<div id="updateNr" class="no-print">+</div>
+				<div class="row">
+					<p>Number</p>
+					<input id="stDob" />
+				</div>
+				<div class="row">
+					<p>Address</p>
+					<input id="date" />
+				</div>
+				<div class="row">
+					<p>Delivery</p>
+					<input />
+				</div>
+				<div class="row">
+					<p>Order Form</p>
+					<input />
+				</div>
+				<div class="row">
+					<p>Date of Delivery</p>
+					<input id="complete-date" />
+				</div>
+				<div class="row">
+					<p>Value Date</p>
+					<input id="order-date" />
+				</div>
+			</div>
+		</div>
+
+		<div class="table-container">
+			<button id="add-row" class="no-print" tabindex="-1">+</button>
+			<button id="remove-row" class="no-print" tabindex="-1">-</button>
+			<div id="table">
+				<div class="table-row">
+					<div class="heading flex-1">
+						<input class="table-input" value="Nr.:" tabindex="-1" />
+					</div>
+					<div class="heading flex-4">
+						<input class="table-input" value="Description:" tabindex="-1" />
+					</div>
+					<div class="heading flex-3">
+						<input class="table-input" value="Code 1:" tabindex="-1" />
+					</div>
+					<div class="heading flex-3">
+						<input class="table-input" value="Code 2:" tabindex="-1" />
+					</div>
+					<div class="heading flex-2">
+						<input class="table-input" value="Quantity:" tabindex="-1" />
+					</div>
+					<div class="heading flex-1">
+						<input class="table-input" value="UM:" tabindex="-1" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer-item">Issued:</div>
+			<div class="footer-item">Received:</div>
+		</div>
+		<button class="no-print" id="save-pdf">Save</button>
+	</div>
+
+</body>
+
+<script>
+	require('./renderer.js');
+</script>
+
+</html>
