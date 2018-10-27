@@ -240,7 +240,7 @@ function saveFirmData(loadedData) {
 
 	// If firm code exists ask for confirmation
 	if (loadedData.firms[number]) {
-		let conf = confirm('Posodobim podatke za obstoječi vnos?');
+		let conf = confirm('Update company data?');
 		if (!conf) return;
 	}
 
@@ -274,7 +274,7 @@ function saveToolData(loadedData) {
 	if (loadedData.tools[code1]) {
 
 		// Ask to confirm edit
-		let conf = confirm('Posodobim podatke za obstoječi vnos?');
+		let conf = confirm('Update producs data?');
 		if (!conf) return;
 	}
 
