@@ -138,7 +138,7 @@ $('#remove-row').click(() => removeRow());
 // Save tool submit button click
 $(document).on('submit', '#table .table-row', () => saveToolData(loadedData));
 
-// Unit fields on focusout
+// Format unit fields on focusout
 $(document).on('focusout', '#table .unit', () => {
 
     // Format input
@@ -146,10 +146,10 @@ $(document).on('focusout', '#table .unit', () => {
 
     switch (val) {
         case '1':
-            event.target.value = 'kos';
+            event.target.value = 'piece';
             break;
         case '2':
-            event.target.value = 'tona';
+            event.target.value = 'ton';
             break;
         case '3':
             event.target.value = 'kg';
