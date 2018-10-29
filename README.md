@@ -1,8 +1,8 @@
 # Delivery Note
 - Electron desktop app for making delivery notes with autocomplete Client / Product fields.
-- Input fields are automatically filled in when Client / Tool name or code is selected.
+- Input fields are automatically filled in when Client / Product name or code is selected.
 - Twitter Typeahead is used for rendering suggestions.
-- Local JSON file that stores client/tool data is automatically generated in the operating system application data directory (see: https://www.npmjs.com/package/electron-json-storage).
+- Local JSON file that stores client/product data is automatically generated in the operating system application data directory (see: https://www.npmjs.com/package/electron-json-storage).
 
 
 ## Instructions
@@ -25,18 +25,19 @@
 
 #### TABLE
 
-- first three fields represent Tool data and can be saved / retrieved from JSON file in the same manner as Client data (see above)
-- if new tool is entered and it hasn't been saved to JSON file, a plus button appears on the right side of table row on focusout
-- tool can be saved to JSON file using enter key or plus button
+- first three fields represent product data and are stored to JSON file when saved
+- when typing in first three fields, suggestions from saved data are rendered
+- when a suggestion is selected, other to fields are automatically filled in
+- if new product is entered and it hasn't been saved to JSON file, a plus button appears on the right side of table row on focusout
 - user can navigate the table with arrow keys
-- if user presses the tab key when on the last field in the last row, new row is automatically generated
+- if user presses the tab key in the last field of the last row, new row is automatically generated
 - rows can be added or removed with '+' and '-' buttons above the table
 
 #### SAVE BUTTON
 
-- save button saves Delivery Note content in print-friendly format to pdf file on the desktop and opens up the file automatically
+- save button saves Delivery Note content in print-friendly format to pdf file on the user's desktop and opens up the file automatically
 
 
 ## Screenshot
 
-![tool_selection](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/product-suggestions.png)
+![product_selection](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/product-suggestions.png)
