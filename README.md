@@ -3,6 +3,7 @@
 - Input fields are automatically filled in when Client / Product name or code is selected.
 - Twitter Typeahead is used for rendering suggestions.
 - Local JSON file that stores client/product data is automatically generated in the operating system application data directory (see: https://www.npmjs.com/package/electron-json-storage).
+- tested on Windows 10
 
 
 ## Instructions
