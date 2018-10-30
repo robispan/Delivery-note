@@ -1,4 +1,7 @@
 
+require('typeahead.js');
+
+
 // ++++++++++++++++++++++++++ TYPEAHEAD FUNCTIONS ++++++++++++++++++++++++++
 
 

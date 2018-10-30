@@ -1,4 +1,4 @@
-// https://www.npmjs.com/package/electron-json-storage
+const $ = require('jquery');
 const storage = require('electron-json-storage');
 
 
