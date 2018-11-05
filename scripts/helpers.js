@@ -113,6 +113,26 @@ function fillToolFields(event, loadedData, suggestion) {
 	$(document).find(`.table-row:nth-child(${parseInt(rowNr) + 1}) .item:nth-child(5) input`).focus();
 }
 
+// Format delivery note code
+function formatDelCode() {
+
+	// Get input
+	const input = event.target.value;
+
+	// Check if input is the right format (only numbers 0-9)
+	const regex = /^[0-9]+$/;
+	if (!input.match(regex)) return;
+
+	// Add zeros in front if number is less than 3 digits
+	const zeroFilled = ('00' + input).substr(-3);
+
+	// Format code with date
+	const updated = zeroFilled + '-' + (new Date()).getFullYear();
+
+	// Update input field
+	event.target.value = updated;
+}
+
 // Format date (e.g. '11212' -> '12.12.2018')
 function formatDate() {
 	const today = new Date();
@@ -228,7 +248,7 @@ function removeRow() {
 	// Get number of existing rows (incl. table head)
 	const nr = document.getElementById('table').childElementCount;
 
-	if (nr > 9) {
+	if (nr > 2) {
 		$('#table .table-row').last().remove();
 	}
 }
@@ -274,7 +294,7 @@ function saveToolData(loadedData) {
 	if (loadedData.tools[code1]) {
 
 		// Ask to confirm edit
-		let conf = confirm('Update producs data?');
+		let conf = confirm('Update product data?');
 		if (!conf) return;
 	}
 
@@ -347,7 +367,7 @@ function togglePlusBtn(loadedData) {
 	else $(addToolBtn).removeClass('show');
 }
 
-// Update top right code 
+// Update Delivery note code (top right) 
 function updateCode(loadedData) {
 	const today = new Date();
 	const year = today.getFullYear();

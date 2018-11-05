@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="styles/style.css">
 
 	<!-- helper functions -->
-	<script src="scripts/scripts.js"></script>
+	<script src="scripts/helpers.js"></script>
 	<!-- custom typeahead.js functions -->
 	<script src="scripts/typeahead.js"></script>
 </head>
@@ -15,6 +15,8 @@
 <body>
 
 	<div class="container">
+
+		<!-- +++++++++++++++++ USER COMPANY INFO +++++++++++++++++ -->
 
 		<div class="user-data">
 			<ul>
@@ -29,18 +31,16 @@
 			<div id="companies">
 				<form id="form-firms">
 
+					<!-- +++++++++++++++++ TOP LEFT +++++++++++++++++ -->
+
 					<div class="left">
-						<div class="the-names">
-							<input name="name" placeholder="Name" class="typeahead" id="firmName" required>
-						</div>
-						<div class="street">
-							<input name="street" placeholder="Street" id="firmStreet" required>
-						</div>
-						<div class="address">
-							<input name="address" placeholder="Address" id="firmAddress" required>
-						</div>
+						<input name="name" placeholder="Name" class="typeahead" id="firmName" required>
+						<input name="street" placeholder="Street" id="firmStreet" required>
+						<input name="address" placeholder="Address" id="firmAddress" required>
 						<button type="submit" id="saveFirm" class="no-print" tabindex="-1">Save</button>
 					</div>
+
+					<!-- +++++++++++++++++ TOP CENTER +++++++++++++++++ -->
 
 					<div class="right">
 						<div id="addFirm" class="no-print">+</div>
@@ -64,6 +64,8 @@
 
 				</form>
 			</div>
+
+			<!-- +++++++++++++++++ TOP RIGHT +++++++++++++++++ -->
 
 			<div id="data">
 				<h2>Delivery Note</h2>
@@ -95,6 +97,8 @@
 			</div>
 		</div>
 
+		<!-- +++++++++++++++++ TABLE +++++++++++++++++ -->
+
 		<div class="table-container">
 			<button id="add-row" class="no-print" tabindex="-1">+</button>
 			<button id="remove-row" class="no-print" tabindex="-1">-</button>
@@ -121,6 +125,9 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- +++++++++++++++++ FOOTER +++++++++++++++++ -->
+
 		<div class="footer">
 			<div class="footer-item">Issued:</div>
 			<div class="footer-item">Received:</div>

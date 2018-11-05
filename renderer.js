@@ -1,6 +1,6 @@
 const $ = require('jquery');
-const ipc = require('electron').ipcRenderer;
 const storage = require('electron-json-storage');
+const ipc = require('electron').ipcRenderer;
 
 
 // Variable for storing json file data
@@ -41,7 +41,7 @@ function initialize() {
         loadThFirms(loadedData);
 
         // Add rows to products table
-        addRows(loadedData, 8);
+        addRows(loadedData, 1);
 
     });
 }
@@ -96,6 +96,9 @@ $('#addFirm').click(() => {
 
 // Update Delivery note code button
 $('#updateNr').click(() => updateCode(loadedData));
+
+// Short Delivery note code input focusout
+$('#stDob').focusout(() => formatDelCode());
 
 // Short date input focusout
 $('#date').focusout(() => formatDate());
