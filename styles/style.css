@@ -62,10 +62,10 @@ input:focus {
     }
 }
 
-/* +++++++++++++++++ USER COMPANY INFO (PRINT ONLY) +++++++++++++++++ */
+/* +++++++++++++++++ USER COMPANY INFO (TOP, PRINT ONLY) +++++++++++++++++ */
 
 .user-data {
-    font-size: 17px;
+    font-size: 20px;
     margin-top: 20px;
     margin-bottom: 60px;
     text-align: center;
@@ -79,7 +79,6 @@ ul {
 }
 
 ul li {
-    font-size: 1.1em;
     padding: 2px 0;
 }
 
@@ -105,7 +104,7 @@ h2 {
     position: relative;
 }
 
-/* +++++++++++++++++ TOP LEFT SECTION +++++++++++++++++ */
+/* +++++++++++++++++ TOP LEFT +++++++++++++++++ */
 
 #companies {
     margin-top: 25px;
@@ -126,7 +125,7 @@ h2 {
 }
 
 #companies .firm-code p {
-    width: 120px;
+    width: 150px;
 }
 
 #companies .firm-code input {
@@ -163,7 +162,7 @@ input#vat {
 }
 
 
-/* +++++++++++++++++ TOP RIGHT SECTION +++++++++++++++++ */
+/* +++++++++++++++++ TOP RIGHT +++++++++++++++++ */
 
 #data {
     display: flex;
@@ -228,7 +227,7 @@ input#vat {
 }
 
 .heading {
-    font-size: 0.85em;
+    font-size: 0.9em;
 }
 
 .table-input {
@@ -373,7 +372,7 @@ input#vat {
 }
 
 
-/* +++++++++++++++++ PRINT MEDIA STYLES +++++++++++++++++ */
+/* +++++++++++++++++ PRINT ONLY +++++++++++++++++ */
 
 @media print {
     .no-print {
@@ -381,6 +380,7 @@ input#vat {
     }  
     body {
         background-color: #fff;
+        font-size: 1.1em;
     }
     .container {
         margin: 0 20px;
@@ -398,9 +398,11 @@ input#vat {
         display: block;
     }
     #companies .left {
-        font-size: 1.3em;
         margin-left: 20px;
     }    
+    #companies .firm-code input {
+        height: 19px;
+    }
     #data {
         width: 340px;
     }
