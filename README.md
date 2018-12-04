@@ -44,7 +44,12 @@
 - save button saves Delivery Note content in print-friendly format to pdf file on the user's desktop and opens up the file automatically
 
 
-## Screenshot
+## Screenshots
+
+### Program interface
 
 ![product_selection](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/product-suggestions.png)
+
+### PDF output
+
 ![PDF output](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/PDF-Output.png)
