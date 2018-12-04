@@ -47,4 +47,4 @@
 ## Screenshot
 
 ![product_selection](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/product-suggestions.png)
-![PDF output](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/PDF-Output.png)
+![PDF output](https://raw.githubusercontent.com/robispan/Delivery-Note/master/screenshots/pdf-output.png)
