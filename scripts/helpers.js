@@ -1,4 +1,5 @@
 const $ = require('jquery');
+const utf8 = require('utf8');
 const storage = require('electron-json-storage');
 
 // Choose display language for frontend texts located in this file
@@ -218,22 +219,25 @@ function getNewPosition(keyCode, pos) {
 	return { col: newCol, row: newRow };
 }
 
-// Translate elements in index.html
+// Translate texts in index.html
 function localizeHTML(lang) {
-	// DOM elements
+	// Elements
 	for (id in translations.index_html.domEls[lang]) {
 		const domEl = $('#' + id);
-		domEl.html(translations.index_html.domEls[lang][id]);
+		const text = utf8.decode(translations.index_html.domEls[lang][id]);
+		domEl.html(text);
 	}
 	// Placeholders
 	for (id in translations.index_html.placeholders[lang]) {
 		const domEl = $('#' + id);
-		domEl.attr("placeholder", translations.index_html.placeholders[lang][id]);
+		const text = utf8.decode(translations.index_html.placeholders[lang][id]);
+		domEl.attr("placeholder", text);
 	}
 	// Inputs
 	for (id in translations.index_html.inputs[lang]) {
 		const domEl = $('#' + id);
-		domEl.attr("value", translations.index_html.inputs[lang][id]);
+		const text = utf8.decode(translations.index_html.inputs[lang][id]);
+		domEl.attr("value", text);
 	}
 }
 

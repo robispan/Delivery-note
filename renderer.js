@@ -11,7 +11,7 @@ let loadedData = {};
 const lang = 'eng';
 
 // Print json file path to console
-console.log(storage.getDefaultDataPath());
+// console.log(storage.getDefaultDataPath());
 
 // Initilize program
 initialize();
