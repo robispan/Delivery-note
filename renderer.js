@@ -6,8 +6,12 @@ const ipc = require('electron').ipcRenderer;
 // Variable for storing json file data
 let loadedData = {};
 
+// Choose display language for index.html 
+// (add/edit translations: 'assets/localization/localization.js')
+const lang = 'eng';
+
 // Print json file path to console
-// console.log(storage.getDefaultDataPath());
+console.log(storage.getDefaultDataPath());
 
 // Initilize program
 initialize();
@@ -17,12 +21,11 @@ initialize();
 
 
 function initialize() {
+
     // Get data from json file
-    storage.get('podatki', function (error, data) {
+    storage.get('data', function (error, data) {        
         if (error) throw error;
-        if (!data) {
-            alert('Datoteka je prazna!');
-        }
+
         // Save data to loadedData object
         try {
             loadedData = data;
@@ -32,17 +35,19 @@ function initialize() {
         }
         if (!loadedData.tools) loadedData.tools = {};
         if (!loadedData.firms) loadedData.firms = {};
-        if (!loadedData.last) loadedData.last = 0;
+        if (!loadedData.noteNum) loadedData.noteNum = 1;
 
-        // Update delivery note code
-        updateCode(loadedData);
+        // Display current note number in the input
+        displayCode(loadedData.noteNum);
+
+        // Localize frontend
+        localize(lang);
 
         // Load typeaheads for firms (top left)
         loadThFirms(loadedData);
 
         // Add rows to products table
-        addRows(loadedData, 1);
-
+        addRows(loadedData, 3);
     });
 }
 
@@ -50,14 +55,14 @@ function initialize() {
 // ++++++++++++++++++++++++++ EVENT HANDLERS ++++++++++++++++++++++++++
 
 
-// ++++++++++++++ TOP LEFT ++++++++++++++
+// ++++++++++++++ TOP LEFT + TOP CENTER ++++++++++++++
 
 
-// Save new firm
-$('#form-firms').submit(() => saveFirmData(loadedData));
+// Submit form
+$('#companies form').submit(() => saveFirmData(loadedData));
 
 // Firm number selected on Typeahead
-$('#firmNum').bind('typeahead:select', function (ev, suggestion) {
+$('#firmNum').bind('typeahead:select', function (_e, suggestion) {
     const firm = loadedData.firms[suggestion];
     fillFirmFields(firm);
 
@@ -66,7 +71,7 @@ $('#firmNum').bind('typeahead:select', function (ev, suggestion) {
 });
 
 // // Firm name selected on Typeahead
-$('#firmName').bind('typeahead:select', function (ev, suggestion) {
+$('#firmName').bind('typeahead:select', function (_e, suggestion) {
     const name = suggestion;
     const firm = Object.keys(loadedData.firms)
         .map(key => {
@@ -74,14 +79,14 @@ $('#firmName').bind('typeahead:select', function (ev, suggestion) {
             res.num = key;
             return res;
         })
-        .filter(firm => firm.ime === name)[0];
+        .filter(firm => firm.name === name)[0];
     fillFirmFields(firm);
 
     // Reload Typeaheads
     loadThFirms(loadedData);
 });
 
-// Add new code for firm button
+// Get new firm code button
 $('#addFirm').click(() => {
     let last = 0;
     const keys = Object.keys(loadedData.firms);
@@ -94,11 +99,8 @@ $('#addFirm').click(() => {
 // ++++++++++++++ TOP RIGHT ++++++++++++++
 
 
-// Update Delivery note code button
-$('#updateNr').click(() => updateCode(loadedData));
-
 // Short Delivery note code input focusout
-$('#stDob').focusout(() => formatDelCode());
+$('#noteNum').focusout(() => formatDelCode());
 
 // Short date input focusout
 $('#date').focusout(() => formatDate());
@@ -149,10 +151,10 @@ $(document).on('focusout', '#table .unit', () => {
 
     switch (val) {
         case '1':
-            event.target.value = 'piece';
+            event.target.value = 'kos';
             break;
         case '2':
-            event.target.value = 'ton';
+            event.target.value = 'tona';
             break;
         case '3':
             event.target.value = 'kg';
@@ -182,17 +184,18 @@ $(document).on('keydown', '.table-row:last-child .item:nth-child(6)', (event) =>
 });
 
 
-// ++++++++++++++ PRINT BUTTON ++++++++++++++
+// ++++++++++++++ PRINT ++++++++++++++
 
 
 // Print button
 $('#save-pdf').click(() => {
-    ipc.send('print-to-pdf');
+    const noteNum = $("#noteNum").val();
+    ipc.send('print-to-pdf', noteNum);
 });
 
 // Print success
 ipc.on('wrote-pdf', () => {
-    loadedData.last += 1;
+    loadedData.noteNum = +$("#noteNum").val().substr(0, 3) + 1;
     saveToJson(loadedData, false);
+    displayCode(loadedData.noteNum);
 });
-

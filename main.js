@@ -50,20 +50,11 @@ app.on('window-all-closed', () => {
 });
 
 // Save content from window renderer to pdf
-ipc.on('print-to-pdf', function (event) {
-    const now = new Date();
-    const day = ('0' + now.getDate()).slice(-2);
-    const month = ('0' + (now.getMonth() + 1)).slice(-2);
-    const year = now.getFullYear();
-    const hour = ('0' + now.getHours()).slice(-2);
-    const minute = ('0' + now.getMinutes()).slice(-2);
-    const second = ('0' + now.getSeconds()).slice(-2);
-    const datetime = `${day}.${month}.${year}-${hour}.${minute}.${second}`;
-
-    const pdfPath = path.join(os.homedir(), `Desktop/deliverynote${datetime}.pdf`);
+ipc.on('print-to-pdf', function (event, val) {
+    const pdfPath = path.join(os.homedir(), `Desktop/dobavnica št. ${val}.pdf`);
     const win = BrowserWindow.fromWebContents(event.sender);
 
-    // PRint options 
+    // Print options 
     const options = { printBackground: true };
 
     // Use default printing options

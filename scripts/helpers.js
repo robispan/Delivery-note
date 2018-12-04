@@ -1,6 +1,9 @@
 const $ = require('jquery');
 const storage = require('electron-json-storage');
 
+// Choose display language for frontend texts located in this file
+// (add/edit translations: 'assets/localization/localization.js')
+const locale = translations.js['eng'];
 
 // Add table row
 function addRows(loadedData, num = 1) {
@@ -63,15 +66,24 @@ function animate(el) {
 	});
 }
 
+// Display Delivery note code (top right) 
+function displayCode(code) {
+	const today = new Date();
+	const year = today.getFullYear();
+	const zeroFilled = ('000' + code).substr(-3);
+	const val = `${zeroFilled}-${year}`;
+	$('#noteNum').val(val);
+}
+
 // Fill firm fields (top left)
 function fillFirmFields(firm) {
-	$('#firmName').val(firm.ime);
+	$('#firmName').val(firm.name);
 	$('#firmNum').val(firm.num);
-	$('#firmStreet').val(firm.ulica);
-	$('#firmAddress').val(firm.naslov);
+	$('#firmStreet').val(firm.street);
+	$('#firmAddress').val(firm.address);
 	$('#phone').val(firm.tel);
 	$('#mail').val(firm.mail);
-	$('#vat').val(firm.DDV);
+	$('#vat').val(firm.VAT);
 }
 
 // Fill tool fields (table row)
@@ -88,7 +100,7 @@ function fillToolFields(event, loadedData, suggestion) {
 	let toolKey;
 	if (identifier === 'name') {
 		toolKey = Object.keys(loadedData.tools)
-			.filter(key => loadedData.tools[key].ime === suggestion)[0];
+			.filter(key => loadedData.tools[key].name === suggestion)[0];
 	}
 	else if (identifier === 'cod2') {
 		toolKey = Object.keys(loadedData.tools)
@@ -102,7 +114,7 @@ function fillToolFields(event, loadedData, suggestion) {
 	const rowNr = inputId.slice(5, inputId.length);
 
 	// Fill fields with data
-	$(`#name-${rowNr}`).val(loadedData.tools[toolKey].ime);
+	$(`#name-${rowNr}`).val(loadedData.tools[toolKey].name);
 	$(`#cod1-${rowNr}`).val(toolKey);
 	$(`#cod2-${rowNr}`).val(loadedData.tools[toolKey].code2);
 
@@ -148,7 +160,7 @@ function formatDate() {
 }
 
 function getNewPosition(keyCode, pos) {
-	
+
 	// Get number of rows in table
 	const rowCount = document.getElementById('table').childElementCount;
 
@@ -173,7 +185,7 @@ function getNewPosition(keyCode, pos) {
 		// Jump to first row if on last row
 		if (pos.row === rowCount)
 			newRow = 2;
-			// Else jump to next row
+		// Else jump to next row
 		else
 			newRow = pos.row + 1;
 	}
@@ -203,7 +215,7 @@ function getNewPosition(keyCode, pos) {
 	}
 
 	// Return new position
-	return {col: newCol, row: newRow};
+	return { col: newCol, row: newRow };
 }
 
 // Navigating with arrow keys
@@ -229,7 +241,7 @@ function navigateTable(event) {
 	}
 
 	// Current position
-	const pos = {row: row, col: col};
+	const pos = { row: row, col: col };
 
 	// Get new position, e.g.: { row: 2, col: 3 }
 	const newPos = getNewPosition(event.keyCode, pos);
@@ -260,25 +272,25 @@ function saveFirmData(loadedData) {
 
 	// If firm code exists ask for confirmation
 	if (loadedData.firms[number]) {
-		let conf = confirm('Update company data?');
+		let conf = confirm(locale.updateFirmConf);
 		if (!conf) return;
 	}
 
 	// Save data to firms object
 	loadedData.firms[number] = {
 		num: number,
-		ime: event.target.name.value,
-		ulica: event.target.street.value,
-		naslov: event.target.address.value,
+		name: event.target.name.value,
+		street: event.target.street.value,
+		address: event.target.address.value,
 		tel: event.target.phone.value,
 		mail: event.target.mail.value,
-		DDV: event.target.vat.value
+		VAT: event.target.vat.value
 	};
 
 	// Load Typeaheads (top left section)
 	loadThFirms(loadedData);
 
-	// Save updated data to json
+	// Save updated data to json file
 	saveToJson(loadedData, false);
 
 	// Animate save button
@@ -294,13 +306,13 @@ function saveToolData(loadedData) {
 	if (loadedData.tools[code1]) {
 
 		// Ask to confirm edit
-		let conf = confirm('Update product data?');
+		let conf = confirm(locale.updateProductConf);
 		if (!conf) return;
 	}
 
 	// Edit data
 	loadedData.tools[code1] = {
-		ime: event.target.name.value,
+		name: event.target.name.value,
 		code2: event.target.code2.value
 	};
 
@@ -322,9 +334,9 @@ function saveToolData(loadedData) {
 
 // Save data object to local json file
 function saveToJson(loadedData, msg) {
-	storage.set('podatki', loadedData, function (error) {
+	storage.set('data', loadedData, function (error) {
 		if (error) throw error;
-		if (msg) alert('Podatki shranjeni.');
+		if (msg) alert(locale.dataSaved);
 	});
 }
 
@@ -354,7 +366,7 @@ function togglePlusBtn(loadedData) {
 		}
 
 		// ... or if tool is listed and code2 or name inputs are edited
-		else if (loadedData.tools[code1val].ime !== nameVal ||
+		else if (loadedData.tools[code1val].name !== nameVal ||
 			loadedData.tools[code1val].code2 !== code2val) {
 			$(addToolBtn).addClass('show');
 		}
@@ -367,12 +379,28 @@ function togglePlusBtn(loadedData) {
 	else $(addToolBtn).removeClass('show');
 }
 
-// Update Delivery note code (top right) 
-function updateCode(loadedData) {
-	const today = new Date();
-	const year = today.getFullYear();
-	const num = loadedData.last + 1;
-	const zeroFilled = ('000' + num).substr(-3);
-	const val = `${zeroFilled}-${year}`;
-	$('#stDob').val(val);
+
+
+
+function localize(lang) {
+
+	// index.html
+
+	// DOM elements
+	for (id in translations.html.domEls[lang]) {
+		const domEl = $('#' + id);
+		domEl.html(translations.html.domEls[lang][id]);
+	}
+
+	// Placeholders
+	for (id in translations.html.placeholders[lang]) {
+		const domEl = $('#' + id);
+		domEl.attr("placeholder", translations.html.placeholders[lang][id]);
+	}
+
+	// Inputs
+	for (id in translations.html.inputs[lang]) {
+		const domEl = $('#' + id);
+		domEl.attr("value", translations.html.inputs[lang][id]);
+	}
 }

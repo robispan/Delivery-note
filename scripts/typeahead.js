@@ -9,7 +9,7 @@ require('typeahead.js');
 function loadThFirms(loadedData) {
 
   const firmKeys = Object.keys(loadedData.firms);
-  const firmNames = firmKeys.map(key => loadedData.firms[key].ime);
+  const firmNames = firmKeys.map(key => loadedData.firms[key].name);
 
   // Settings for each Typeahead
   let taInstances = [
@@ -35,7 +35,7 @@ function loadThTools(loadedData) {
   // Datasets
   const toolKeys = Object.keys(loadedData.tools);
   const toolKeys2 = toolKeys.map(key => loadedData.tools[key].code2);
-  const toolNames = toolKeys.map(key => loadedData.tools[key].ime);
+  const toolNames = toolKeys.map(key => loadedData.tools[key].name);
 
   let taInstances = [];
 

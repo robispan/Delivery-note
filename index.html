@@ -2,10 +2,12 @@
 <html>
 
 <head>
-	<title>Delivery note</title>
+	<title id="htmlTitle">Delivery Note</title>
 	<link rel="stylesheet" href="styles/animate.css">
 	<link rel="stylesheet" href="styles/style.css">
 
+	<!-- translations -->
+	<script src="./assets/localization/localization.js"></script>
 	<!-- helper functions -->
 	<script src="scripts/helpers.js"></script>
 	<!-- custom typeahead.js functions -->
@@ -16,27 +18,33 @@
 
 	<div class="container">
 
-		<!-- +++++++++++++++++ USER COMPANY INFO +++++++++++++++++ -->
+		<!-- +++++++++++++++++ USER LOGO +++++++++++++++++ -->
 
-		<div class="user-data">
-			<ul>
-				<li>Company Name</li>
-				<li>Company Address</li>
-				<li>City</li>
-			</ul>
+		<div class="logo">
+			<img src="assets/logo/logo.png">
+		</div>
+
+		<!-- +++++++++++++++++ USER INFO +++++++++++++++++ -->
+
+		<div class="user-data-2">
+			<p>Phone: 123456789</p>
+			<p>GSM 1: 123 456 789</p>
+			<p>GSM 2: 123 456 789</p>
+			<p>Email: johndoe@mail.com</p>
+			<p>VAT Number: 123456789</p>
 		</div>
 
 		<div class="under-title">
 
 			<div id="companies">
-				<form id="form-firms">
+				<form>
 
 					<!-- +++++++++++++++++ TOP LEFT +++++++++++++++++ -->
 
 					<div class="left">
-						<input name="name" placeholder="Name" class="typeahead" id="firmName" required>
-						<input name="street" placeholder="Street" id="firmStreet" required>
-						<input name="address" placeholder="Address" id="firmAddress" required>
+						<input name="name" class="typeahead" id="firmName" required>
+						<input name="street" id="firmStreet" required>
+						<input name="address" id="firmAddress" required>
 						<button type="submit" id="saveFirm" class="no-print" tabindex="-1">Save</button>
 					</div>
 
@@ -45,19 +53,19 @@
 					<div class="right">
 						<div id="addFirm" class="no-print">+</div>
 						<div class="firm-code flex-row">
-							<p>Customer Code</p>
+							<p id="clientCode">Code:</p>
 							<input name="num" class="typeahead" id="firmNum" required>
 						</div>
-						<div class="flex-row">
-							<p>Phone:</p>
-							<input name="phone" class="typeahead no-print" id="phone">
+						<div>
+							<p id="clientPhone">Phone:</p>
+							<input name="phone" class="typeahead" id="phone">
 						</div>
-						<div class="flex-row">
-							<p>Email:</p>
-							<input name="mail" class="typeahead no-print" id="mail">
+						<div>
+							<p id="clientEmail">Email:</p>
+							<input name="mail" class="typeahead" id="mail">
 						</div>
 						<div class="vat">
-							<p>VAT ID Number</p>
+							<p id="vatNum">VAT Number</p>
 							<input name="vat" id="vat" required>
 						</div>
 					</div>
@@ -68,30 +76,32 @@
 			<!-- +++++++++++++++++ TOP RIGHT +++++++++++++++++ -->
 
 			<div id="data">
-				<h2>Delivery Note</h2>
-				<div id="updateNr" class="no-print">+</div>
+				<h2 id="deliveryNote">Delivery Note</h2>
 				<div class="row">
-					<p>Number</p>
-					<input id="stDob" />
+					<p id="delNoteNum">Number</p>
+					<input id="noteNum" />
 				</div>
 				<div class="row">
-					<p>Your Address</p>
+					<p id="location">Location</p>
 					<input id="date" />
 				</div>
 				<div class="row">
-					<p>Delivery</p>
+					<p id="delivery">Delivery</p>
 					<input />
 				</div>
 				<div class="row">
-					<p>Order Form</p>
-					<input />
+					<p id="orderForm">Order Form</p>
+					<input class="note-code-1"/>
 				</div>
 				<div class="row">
-					<p>Date of Delivery</p>
+					<input class="note-code-2" />
+				</div>
+				<div class="row">
+					<p id="serviceDate">Service Date</p>
 					<input id="complete-date" />
 				</div>
 				<div class="row">
-					<p>Value Date</p>
+					<p id="valueDate">Value Date</p>
 					<input id="order-date" />
 				</div>
 			</div>
@@ -105,22 +115,22 @@
 			<div id="table">
 				<div class="table-row">
 					<div class="heading flex-1">
-						<input class="table-input" value="Nr.:" tabindex="-1" />
+						<input id="thNr" class="table-input" value="Nr.:" tabindex="-1" />
 					</div>
 					<div class="heading flex-4">
-						<input class="table-input" value="Description:" tabindex="-1" />
+						<input id="thDescr" class="table-input" value="Description:" tabindex="-1" />
 					</div>
 					<div class="heading flex-3">
-						<input class="table-input" value="Code 1:" tabindex="-1" />
+						<input id="thCode1" class="table-input" value="Code 1:" tabindex="-1" />
 					</div>
 					<div class="heading flex-3">
-						<input class="table-input" value="Code 2:" tabindex="-1" />
+						<input id="thCode2" class="table-input" value="Code 2:" tabindex="-1" />
 					</div>
 					<div class="heading flex-2">
-						<input class="table-input" value="Quantity:" tabindex="-1" />
+						<input id="thQty" class="table-input" value="Quantity:" tabindex="-1" />
 					</div>
 					<div class="heading flex-1">
-						<input class="table-input" value="UM:" tabindex="-1" />
+						<input id="thUnit" class="table-input" value="MU:" tabindex="-1" />
 					</div>
 				</div>
 			</div>
@@ -129,8 +139,8 @@
 		<!-- +++++++++++++++++ FOOTER +++++++++++++++++ -->
 
 		<div class="footer">
-			<div class="footer-item">Issued:</div>
-			<div class="footer-item">Received:</div>
+			<div id="issued" class="footer-item">Issued:</div>
+			<div id="received" class="footer-item">Received:</div>
 		</div>
 		<button class="no-print" id="save-pdf">Save</button>
 	</div>

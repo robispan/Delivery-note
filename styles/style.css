@@ -64,34 +64,35 @@ input:focus {
 
 /* +++++++++++++++++ USER COMPANY INFO (TOP, PRINT ONLY) +++++++++++++++++ */
 
-.user-data {
-    font-size: 20px;
+.logo {
     margin-top: 20px;
     margin-bottom: 60px;
     text-align: center;
     display: none;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.logo img {
+    width: 550px; 
+    height: 200px; 
+    position: relative; 
+    left: -130px;
 }
 
-ul li {
-    padding: 2px 0;
+.user-data-2 {
+    float: right;
+    display: none;
 }
 
 /* +++++++++++++++++ MAIN TITLE +++++++++++++++++ */
 
 h2 {
-    background: #ddd;
-    padding: 7px 5px;
+    background: rgb(204, 204, 204);
+    padding: 9px 7px;
     margin: 0;
     margin-bottom: 20px;
 }
 
-/* +++++++++++++++++ TOP SECTION +++++++++++++++++ */
+/* +++++++++++++++++ TOP CONTAINER +++++++++++++++++ */
 
 .under-title {
     display: flex;
@@ -104,16 +105,32 @@ h2 {
     position: relative;
 }
 
-/* +++++++++++++++++ TOP LEFT +++++++++++++++++ */
+/* +++++++++++++++++ TOP LEFT + CENTER +++++++++++++++++ */
 
 #companies {
     margin-top: 25px;
-    width: 450px;
+    width: 430px;
 }
 
-#form-firms {
+#companies form {
     display: flex;
     justify-content: space-between;
+}
+
+/* +++++++++++++++++ TOP LEFT +++++++++++++++++ */
+
+#saveFirm {
+    background: none;
+    border: none;
+    margin: 6px 0;
+    padding: 0 2px;
+    color: #008dc5;
+}
+
+/* +++++++++++++++++ TOP CENTER +++++++++++++++++ */
+
+#companies .right>div {
+    margin-top: 3px;
 }
 
 #companies .right input {
@@ -144,21 +161,11 @@ h2 {
     z-index: 100;
 }
 
-#companies .vat {
-    margin-top: 20px;
-}
-
+input#phone,
+input#mail,
 input#vat {
     box-sizing: border-box;
     width: 100% !important;
-}
-
-#saveFirm {
-    background: none;
-    border: none;
-    margin: 6px 0;
-    padding: 0 2px;
-    color: #008dc5;
 }
 
 
@@ -167,7 +174,7 @@ input#vat {
 #data {
     display: flex;
     flex-direction: column;
-    width: 310px;
+    width: 350px;
     position: relative;
 }
 
@@ -183,18 +190,16 @@ input#vat {
 }
 
 #data .row input {
+    width: 55%;
     height: 17px;
 }
 
-#updateNr {
-    position: absolute;
-    top: 65px;
-    right: 4px;
-    padding: 0 6px;
-    font-size: 1.2em;
-    cursor: pointer; 
-    color: #008dc5;
+#data .row .note-code-2 {
+    width: 100%;
+    margin-left: auto;
+    margin-bottom: 10px;
 }
+
 
 /* +++++++++++++++++ TABLE SECTION +++++++++++++++++ */
 
@@ -394,23 +399,66 @@ input#vat {
         padding: 0;
         margin: 1px 0;
     }
-    .user-data {
+    .logo {
         display: block;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .user-data-2 {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 90px;
+        font-size: 0.8em;
     }
     #companies .left {
-        margin-left: 20px;
-    }    
-    #companies .firm-code input {
+        margin-top: -5px;
+    }
+    #companies .left input {
+        width: 200px;
+        font-family: Candara !important;
+        font-size: 1.2em !important;
+        font-weight: bold;
+    }   
+    #companies .right>div {
+        margin-top: 10px;
+    } 
+    #companies .right input {
+        margin-top: 4px;
+    } 
+    #companies .right .firm-code {
+        margin-top: 0;
+    } 
+    #companies .right .firm-code input {
         height: 19px;
+        width: 45px;
+        margin-left: -15px;
     }
     #data {
-        width: 340px;
+        width: 400px;
+    }
+    #data .row {
+        margin-bottom: 4px;
+    }
+    #data .row:nth-child(5) {
+        margin-bottom: 0;
     }
     #data .row p {
-        min-width: 140px;
+        min-width: 160px;
         padding-top: 0;
         padding-bottom: 6px;
-        margin-right: 60px;
+        margin-right: 20px;
+    }
+    #data .row #noteNum {
+        font-weight: bolder;
+        font-size: 1.1em !important;
+    }    
+    #data .row .note-code-2 {
+        margin-top: 0;
+        width: 95%;
+    }
+    .table-container {
+        margin-top: 30px;
     }
     #table {
         border-right: none;
@@ -441,6 +489,7 @@ input#vat {
     }
     .footer {
         display: flex;
+        margin-top: 50px;
     }
 }
 
