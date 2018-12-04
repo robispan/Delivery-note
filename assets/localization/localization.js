@@ -1,5 +1,5 @@
 const translations = {
-   html: {
+   index_html: {
       domEls: {
          eng: {
             location: 'Location',
@@ -67,7 +67,7 @@ const translations = {
          }
       }
    },
-   js: {
+   helpers_js: {
       eng: {
          updateFirmConf: 'Update company data?',
          updateProductConf: 'Update product data?',

@@ -40,8 +40,8 @@ function initialize() {
         // Display current note number in the input
         displayCode(loadedData.noteNum);
 
-        // Localize frontend
-        localize(lang);
+        // Translate elements in index.html
+        localizeHTML(lang);
 
         // Load typeaheads for firms (top left)
         loadThFirms(loadedData);

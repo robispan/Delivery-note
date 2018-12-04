@@ -8,33 +8,38 @@
 
 ## Instructions
 
-### Set up
-- edit index.html file to enter your company information in div.user-data and address in div#data .row p
+### Add user data and logo
+- edit index.html file to enter your company information in div.user-data-2
+- add your own logo (logo.png) to "assets/logo/" directory
+
+### Choose/edit display language 
+- translations are stored at "assets/localization/localization.js" in translations object (global variable)
+- you can add or edit translations in translations object (separate sections for index.html: keys are DOM element IDs and renderer.js: keys are used for variable names)
 
 ### Program usage
 
-#### CLIENT DATA (TOP LEFT)
+#### Client data (top left + center)
 
 - enter client data in top-left and top-center section
 - save client data to json file with save button or enter key
 - when user types in Company Name / Company Code fields, suggestions of previously saved Company Names / Company Codes will be displayed - - when suggestion is selected all the saved data will be automatically filled in
 
-#### OTHER INFO (TOP RIGHT)
+#### Other data (top right)
 
 - Number field: delivery note number is automatically updated with a 3-digit number and curent year when user saves the current Delivery note
 - short codes can be user for date fields (e.g.: to get 1. 11. [current year] you can just enter: 0111 and date will be generated on focus out)
 
-#### TABLE
+#### Table
 
-- first three fields represent product data and are stored to JSON file when saved
-- when typing in first three fields, suggestions from saved data are rendered
-- when a suggestion is selected, other to fields are automatically filled in
-- if new product is entered and it hasn't been saved to JSON file, a plus button appears on the right side of table row on focusout
-- user can navigate the table with arrow keys
+- first three fields in each row represent product data and are stored to JSON file when saved
+- when typing in first three fields, suggestions from saved data are rendered with Typeahead
+- when a suggestion is selected, other two fields are autocomplete
+- if new product is entered and it hasn't been saved to the JSON file, a plus button appears on the right side of table row on focusout (data is saved if plus button or enter key is pressed)
+- user can navigate the table using arrow keys
 - if user presses the tab key in the last field of the last row, new row is automatically generated
 - rows can be added or removed with '+' and '-' buttons above the table
 
-#### SAVE BUTTON
+#### Save button
 
 - save button saves Delivery Note content in print-friendly format to pdf file on the user's desktop and opens up the file automatically
 

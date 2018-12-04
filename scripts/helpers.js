@@ -3,7 +3,7 @@ const storage = require('electron-json-storage');
 
 // Choose display language for frontend texts located in this file
 // (add/edit translations: 'assets/localization/localization.js')
-const locale = translations.js['eng'];
+const locale = translations.helpers_js['eng'];
 
 // Add table row
 function addRows(loadedData, num = 1) {
@@ -218,6 +218,25 @@ function getNewPosition(keyCode, pos) {
 	return { col: newCol, row: newRow };
 }
 
+// Translate elements in index.html
+function localizeHTML(lang) {
+	// DOM elements
+	for (id in translations.index_html.domEls[lang]) {
+		const domEl = $('#' + id);
+		domEl.html(translations.index_html.domEls[lang][id]);
+	}
+	// Placeholders
+	for (id in translations.index_html.placeholders[lang]) {
+		const domEl = $('#' + id);
+		domEl.attr("placeholder", translations.index_html.placeholders[lang][id]);
+	}
+	// Inputs
+	for (id in translations.index_html.inputs[lang]) {
+		const domEl = $('#' + id);
+		domEl.attr("value", translations.index_html.inputs[lang][id]);
+	}
+}
+
 // Navigating with arrow keys
 function navigateTable(event) {
 
@@ -377,30 +396,4 @@ function togglePlusBtn(loadedData) {
 
 	// Else hide button
 	else $(addToolBtn).removeClass('show');
-}
-
-
-
-
-function localize(lang) {
-
-	// index.html
-
-	// DOM elements
-	for (id in translations.html.domEls[lang]) {
-		const domEl = $('#' + id);
-		domEl.html(translations.html.domEls[lang][id]);
-	}
-
-	// Placeholders
-	for (id in translations.html.placeholders[lang]) {
-		const domEl = $('#' + id);
-		domEl.attr("placeholder", translations.html.placeholders[lang][id]);
-	}
-
-	// Inputs
-	for (id in translations.html.inputs[lang]) {
-		const domEl = $('#' + id);
-		domEl.attr("value", translations.html.inputs[lang][id]);
-	}
 }
