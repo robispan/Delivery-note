@@ -13,26 +13,26 @@
 - add your own logo (logo.png) to "assets/logo/" directory
 
 ### Choose/edit display language 
-- translations are stored at "assets/localization/localization.js" in translations object (global variable)
-- you can add or edit translations in translations object (separate sections for index.html: keys are DOM element IDs and renderer.js: keys are used for variable names)
+- translations are stored in "assets/localization/localization.js" 
+- you can add or edit translations in the "translations" object variable; there are separate branches for index.html (keys represent DOM elements' IDs, values are used as translations for html text, placeholders or input values) and renderer.js (variables are directly linked to translations)
 
 ### Program usage
 
-#### Client data (top left + center)
+#### Client data (top left)
 
-- enter client data in top-left and top-center section
+- enter client data in top-left section
 - save client data to json file with save button or enter key
-- when user types in Company Name / Company Code fields, suggestions of previously saved Company Names / Company Codes will be displayed - - when suggestion is selected all the saved data will be automatically filled in
+- when user types in the Company Name / Company Code fields, suggestions of previously saved data will be displayed - when suggestion is selected all the saved data will be automatically filled in
 
-#### Other data (top right)
+#### Other fields (top right)
 
-- Number field: delivery note number is automatically updated with a 3-digit number and curent year when user saves the current Delivery note
-- short codes can be user for date fields (e.g.: to get 1. 11. [current year] you can just enter: 0111 and date will be generated on focus out)
+- Number field: delivery note number is automatically updated with a 3-digit number and curent year when user saves the current Delivery note to pdf (button at the bottom of the screen)
+- short codes can be user for date fields (e.g.: to get 01. 11. [current year] you can just enter: 0111 and date will be generated on focus out)
 
 #### Table
 
 - first three fields in each row represent product data and are stored to JSON file when saved
-- when typing in first three fields, suggestions from saved data are rendered with Typeahead
+- when typing in first three fields, suggestions from saved data are rendered using Typeahead
 - when a suggestion is selected, other two fields are autocomplete
 - if new product is entered and it hasn't been saved to the JSON file, a plus button appears on the right side of table row on focusout (data is saved if plus button or enter key is pressed)
 - user can navigate the table using arrow keys
