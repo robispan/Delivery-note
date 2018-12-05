@@ -8,7 +8,7 @@ let loadedData = {};
 
 // Choose display language for index.html 
 // (add/edit translations: 'assets/localization/localization.js')
-const lang = 'eng';
+const langHTML = 'eng';
 
 // Print json file path to console
 // console.log(storage.getDefaultDataPath());
@@ -45,7 +45,7 @@ function initialize() {
         $('#location').val(loadedData.location);
 
         // Translate elements in index.html
-        localizeHTML(lang);
+        localizeHTML(langHTML);
 
         // Load typeaheads for firms (top left)
         loadThFirms(loadedData);

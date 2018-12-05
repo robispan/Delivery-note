@@ -4,7 +4,8 @@ const storage = require('electron-json-storage');
 
 // Choose display language for frontend texts located in this file
 // (add/edit translations: 'assets/localization/localization.js')
-const locale = translations.helpers_js['eng'];
+const langJS = 'eng';
+const locale = translations.helpers_js[langJS];
 
 // Add table row
 function addRows(loadedData, num = 1) {
@@ -242,19 +243,19 @@ function localizeHTML(lang) {
 	// Elements
 	for (id in translations.index_html.domEls[lang]) {
 		const domEl = $('#' + id);
-		const text = translations.index_html.domEls[lang][id];
+		const text = utf8.decode(translations.index_html.domEls[lang][id]);
 		domEl.html(text);
 	}
 	// Placeholders
 	for (id in translations.index_html.placeholders[lang]) {
 		const domEl = $('#' + id);
-		const text = translations.index_html.placeholders[lang][id];
+		const text = utf8.decode(translations.index_html.placeholders[lang][id]);
 		domEl.attr("placeholder", text);
 	}
 	// Inputs
 	for (id in translations.index_html.inputs[lang]) {
 		const domEl = $('#' + id);
-		const text = translations.index_html.inputs[lang][id];
+		const text = utf8.decode(translations.index_html.inputs[lang][id]);
 		domEl.attr("value", text);
 	}
 }
