@@ -319,7 +319,7 @@ h2 {
 
 /* +++++++++++++++++ PRINT PDF BUTTON +++++++++++++++++ */
 
-#save-pdf {
+#savePdf {
     background: white;
     font-size: 1.15em;
     display: block;
@@ -330,18 +330,18 @@ h2 {
     border-radius: 4px;
 }
 
-#save-pdf:hover {
+#savePdf:hover {
     background: #3394d4;
     border-color: #3394d4;
     color: white;
 }
 
-#save-pdf:active {
+#savePdf:active {
     outline: none;
     box-shadow: 0 0 2px 3px #8ad8e4;
 }
 
-#save-pdf:focus {
+#savePdf:focus {
     outline: none;
 }
 

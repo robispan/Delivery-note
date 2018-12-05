@@ -180,7 +180,7 @@ $(document).on('keydown', '.table-row:last-child .item:nth-child(6)', (event) =>
 
 
 // Print button
-$('#save-pdf').click(() => {
+$('#savePdf').click(() => {
     const noteNum = $("#noteNum").val();
     ipc.send('print-to-pdf', noteNum);
 });

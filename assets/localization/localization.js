@@ -15,7 +15,8 @@ const translations = {
             serviceDate: 'Date of service',
             valueDate: 'Value date',
             issued: 'Issued:',
-            received: 'Received:'
+            received: 'Received:',
+            savePdf: 'Save'
          },
          slo: {
             htmlTitle: 'Dobavnica',
@@ -31,7 +32,8 @@ const translations = {
             serviceDate: 'Datum opravljene dobave blaga/ opravljanja storitve',
             valueDate: 'Datum valute',
             issued: 'Izdal:',
-            received: 'Prejel:'
+            received: 'Prejel:',
+            savePdf: 'Shrani'
          }
       },
       placeholders: {
