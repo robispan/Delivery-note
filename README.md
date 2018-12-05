@@ -13,6 +13,7 @@
 - add your own logo (logo.png) to "assets/logo/" directory
 
 ### Choose/edit display language 
+- to change display language edit "langHTML" variable value in renderer.js (default: "eng") and "langJS" variable value in scripts/helpers.js (default: "eng")
 - translations are stored in "assets/localization/localization.js" 
 - you can add or edit translations in the "translations" object variable; there are separate branches for index.html (keys represent DOM elements' IDs, values are used as translations for html text, placeholders or input values) and renderer.js (variables are directly linked to translations)
 
