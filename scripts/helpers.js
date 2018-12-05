@@ -242,19 +242,19 @@ function localizeHTML(lang) {
 	// Elements
 	for (id in translations.index_html.domEls[lang]) {
 		const domEl = $('#' + id);
-		const text = utf8.decode(translations.index_html.domEls[lang][id]);
+		const text = translations.index_html.domEls[lang][id];
 		domEl.html(text);
 	}
 	// Placeholders
 	for (id in translations.index_html.placeholders[lang]) {
 		const domEl = $('#' + id);
-		const text = utf8.decode(translations.index_html.placeholders[lang][id]);
+		const text = translations.index_html.placeholders[lang][id];
 		domEl.attr("placeholder", text);
 	}
 	// Inputs
 	for (id in translations.index_html.inputs[lang]) {
 		const domEl = $('#' + id);
-		const text = utf8.decode(translations.index_html.inputs[lang][id]);
+		const text = translations.index_html.inputs[lang][id];
 		domEl.attr("value", text);
 	}
 }

@@ -365,7 +365,7 @@ h2 {
 
 /* +++++++++++++++++ PRINT ONLY +++++++++++++++++ */
 
-@media print {
+@media  print {
     .no-print {
         display: none !important;
     }  
@@ -414,9 +414,12 @@ h2 {
     #firmAddress {
         width: 350px;
         font-family: Candara !important;
-        font-size: 1.4em !important;
-        letter-spacing: -0.2px;
+        font-size: 1.3em !important;
+        transform: scale(0.8, 1.0);
         font-weight: bold;
+        position: relative;
+        left: -40px;
+        margin: 0;
     }   
     #firmName {
         margin-top: 8px;
@@ -425,7 +428,7 @@ h2 {
         margin-bottom: 8px;
     }
     #data {
-        width: 430px;
+        width: 425px;
     }
     #data .row {
         margin-bottom: 4px;
@@ -444,7 +447,7 @@ h2 {
         width: 250px;
     }
     #location {
-        width: 180px !important;
+        width: 175px !important;
         margin-bottom: 5px;
     }
     #data .row #noteNum {
