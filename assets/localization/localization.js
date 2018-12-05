@@ -2,7 +2,6 @@ const translations = {
    index_html: {
       domEls: {
          eng: {
-            location: 'Location',
             htmlTitle: 'Delivery Note',
             saveFirm: 'Save',
             clientCode: 'Code:',
@@ -19,7 +18,6 @@ const translations = {
             received: 'Received:'
          },
          slo: {
-            location: 'Lokacija',
             htmlTitle: 'Dobavnica',
             saveFirm: 'Shrani',
             clientCode: 'Šifra:',
@@ -40,12 +38,14 @@ const translations = {
          eng: {
             firmName: 'Name',
             firmStreet: 'Street',
-            firmAddress: 'City'
+            firmAddress: 'City',
+            location: 'Your Location'
          },
          slo: {
             firmName: 'Naziv',
             firmStreet: 'Ulica',
-            firmAddress: 'Pošta'
+            firmAddress: 'Pošta',
+            location: 'Lokacija'
          }
       },
       inputs: {
@@ -71,12 +71,18 @@ const translations = {
       eng: {
          updateFirmConf: 'Update company data?',
          updateProductConf: 'Update product data?',
-         dataSaved: 'Data saved succesfully.'
+         dataSaved: 'Data saved succesfully.',
+         piece: 'piece',
+         ton: 'ton',
+         kg: 'kg'
       },
       slo: {
          updateFirmConf: 'Posodobim podatke za podjetje?',
          updateProductConf: 'Posodobim podatke za produkt?',
-         dataSaved: 'Podatki shranjeni.'
+         dataSaved: 'Podatki shranjeni.',
+         piece: 'kos',
+         ton: 'tona',
+         kg: 'kg'
       }
    }
 }

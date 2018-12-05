@@ -22,7 +22,7 @@ function createWindow() {
 
     // Create browser window
     win = new BrowserWindow({
-        width: 950,
+        width: 850,
         height: 850,
         icon: __dirname + '/assets/png/icon.png'
     });

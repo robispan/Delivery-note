@@ -36,40 +36,31 @@
 
 		<div class="under-title">
 
+			<!-- +++++++++++++++++ TOP LEFT +++++++++++++++++ -->
+
 			<div id="companies">
 				<form>
-
-					<!-- +++++++++++++++++ TOP LEFT +++++++++++++++++ -->
-
-					<div class="left">
-						<input name="name" class="typeahead" id="firmName" required>
-						<input name="street" id="firmStreet" required>
-						<input name="address" id="firmAddress" required>
-						<button type="submit" id="saveFirm" class="no-print" tabindex="-1">Save</button>
+					<div id="addFirm" class="no-print">+</div>
+					<div class="firm-code flex-row">
+						<p id="clientCode">Code:</p>
+						<input name="num" class="typeahead" id="firmNum" required>
 					</div>
-
-					<!-- +++++++++++++++++ TOP CENTER +++++++++++++++++ -->
-
-					<div class="right">
-						<div id="addFirm" class="no-print">+</div>
-						<div class="firm-code flex-row">
-							<p id="clientCode">Code:</p>
-							<input name="num" class="typeahead" id="firmNum" required>
-						</div>
-						<div>
-							<p id="clientPhone">Phone:</p>
-							<input name="phone" class="typeahead" id="phone">
-						</div>
-						<div>
-							<p id="clientEmail">Email:</p>
-							<input name="mail" class="typeahead" id="mail">
-						</div>
-						<div class="vat">
-							<p id="vatNum">VAT Number</p>
-							<input name="vat" id="vat" required>
-						</div>
+					<input name="name" class="typeahead" id="firmName" required>
+					<input name="street" id="firmStreet" required>
+					<input name="address" id="firmAddress" required>
+					<div>
+						<p id="clientPhone">Phone</p>
+						<input name="phone" class="typeahead" id="phone">
 					</div>
-
+					<div>
+						<p id="clientEmail">Email</p>
+						<input name="mail" class="typeahead" id="mail">
+					</div>
+					<div class="vat">
+						<p id="vatNum">VAT Number</p>
+						<input name="vat" id="vat" required>
+					</div>
+					<button type="submit" id="saveFirm" class="no-print" tabindex="-1">Save</button>
 				</form>
 			</div>
 
@@ -82,7 +73,7 @@
 					<input id="noteNum" />
 				</div>
 				<div class="row">
-					<p id="location">Location</p>
+					<input id="location" />
 					<input id="date" />
 				</div>
 				<div class="row">
@@ -91,7 +82,7 @@
 				</div>
 				<div class="row">
 					<p id="orderForm">Order Form</p>
-					<input class="note-code-1"/>
+					<input class="note-code-1" />
 				</div>
 				<div class="row">
 					<input class="note-code-2" />

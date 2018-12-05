@@ -36,9 +36,13 @@ function initialize() {
         if (!loadedData.tools) loadedData.tools = {};
         if (!loadedData.firms) loadedData.firms = {};
         if (!loadedData.noteNum) loadedData.noteNum = 1;
+        if (!loadedData.location) loadedData.location = '';
 
         // Display current note number in the input
         displayCode(loadedData.noteNum);
+
+        // Display saved location in the input
+        $('#location').val(loadedData.location);
 
         // Translate elements in index.html
         localizeHTML(lang);
@@ -55,10 +59,10 @@ function initialize() {
 // ++++++++++++++++++++++++++ EVENT HANDLERS ++++++++++++++++++++++++++
 
 
-// ++++++++++++++ TOP LEFT + TOP CENTER ++++++++++++++
+// ++++++++++++++ TOP LEFT ++++++++++++++
 
 
-// Submit form
+// Form submitted on enter key or save button
 $('#companies form').submit(() => saveFirmData(loadedData));
 
 // Firm number selected on Typeahead
@@ -70,7 +74,7 @@ $('#firmNum').bind('typeahead:select', function (_e, suggestion) {
     loadThFirms(loadedData);
 });
 
-// // Firm name selected on Typeahead
+// Firm name selected on Typeahead
 $('#firmName').bind('typeahead:select', function (_e, suggestion) {
     const name = suggestion;
     const firm = Object.keys(loadedData.firms)
@@ -98,6 +102,12 @@ $('#addFirm').click(() => {
 
 // ++++++++++++++ TOP RIGHT ++++++++++++++
 
+
+// Save location on focusout
+$('#location').focusout(() => {
+    loadedData.location = event.target.value;
+    saveToJson(loadedData, false);
+});
 
 // Short Delivery note code input focusout
 $('#noteNum').focusout(() => formatDelCode());
@@ -144,25 +154,7 @@ $('#remove-row').click(() => removeRow());
 $(document).on('submit', '#table .table-row', () => saveToolData(loadedData));
 
 // Format unit fields on focusout
-$(document).on('focusout', '#table .unit', () => {
-
-    // Format input
-    const val = event.target.value;
-
-    switch (val) {
-        case '1':
-            event.target.value = 'kos';
-            break;
-        case '2':
-            event.target.value = 'tona';
-            break;
-        case '3':
-            event.target.value = 'kg';
-            break;
-    }
-    // Remove focus out handler
-    $(event.target).off();
-});
+$(document).on('focusout', '#table .unit', () => formatUnits());
 
 // On tool name, code 1 and code 2 input focus
 $(document).on('focusout', '#table .name', () => togglePlusBtn(loadedData));

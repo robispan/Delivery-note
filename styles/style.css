@@ -47,10 +47,10 @@ input:focus {
 }
 
 
-/* +++++++++++++++++ MAIN CONTAINER +++++++++++++++++ */
+/* +++++++++++++++++ CONTAINER +++++++++++++++++ */
 
 .container {
-    min-width: 830px;
+    min-width: 740px;
     max-width: 900px;
     margin: 50px auto;
     position: relative;
@@ -105,19 +105,12 @@ h2 {
     position: relative;
 }
 
-/* +++++++++++++++++ TOP LEFT + CENTER +++++++++++++++++ */
+/* +++++++++++++++++ TOP LEFT +++++++++++++++++ */
 
 #companies {
-    margin-top: 25px;
-    width: 430px;
+    margin-top: 13px;
+    width: 350px;
 }
-
-#companies form {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* +++++++++++++++++ TOP LEFT +++++++++++++++++ */
 
 #saveFirm {
     background: none;
@@ -127,45 +120,34 @@ h2 {
     color: #008dc5;
 }
 
-/* +++++++++++++++++ TOP CENTER +++++++++++++++++ */
-
-#companies .right>div {
-    margin-top: 3px;
-}
-
-#companies .right input {
-    width: 140px;
-}
-
-#companies .right .twitter-typeahead {
-    width: 55px;
-}
-
 #companies .firm-code p {
-    width: 150px;
+    width: 70px;
+}
+
+#companies input {
+    width: 230px;
 }
 
 #companies .firm-code input {
-    width: 24px;
+    width: 28px;
     height: 12px;
+}
+
+#clientPhone,
+#clientEmail,
+#vatNum {
+    margin-top: 6px;
 }
 
 #addFirm {
     position: absolute;
     top: 3px;
-    right: 0;
+    left: 100px;
     padding: 3px 6px;
     font-size: 1.2em;
     cursor: pointer; 
     color: #008dc5;
     z-index: 100;
-}
-
-input#phone,
-input#mail,
-input#vat {
-    box-sizing: border-box;
-    width: 100% !important;
 }
 
 
@@ -192,6 +174,10 @@ input#vat {
 #data .row input {
     width: 55%;
     height: 17px;
+}
+
+#location {
+    width: 130px !important;
 }
 
 #data .row .note-code-2 {
@@ -278,11 +264,11 @@ input#vat {
 }
 
 #add-row {
-    left: 10px;
+    right: 14px;
 }
 
 #remove-row {
-    left: 36px;
+    right: 40px;
 }
 
 #add-row:hover,
@@ -404,6 +390,9 @@ input#vat {
         margin-top: 0;
         margin-bottom: 0;
     }
+    #companies input {
+        width: 400px;
+    }
     .user-data-2 {
         display: inline-block;
         position: absolute;
@@ -411,31 +400,32 @@ input#vat {
         top: 90px;
         font-size: 0.8em;
     }
-    #companies .left {
-        margin-top: -5px;
+    .firm-code {
+        justify-content: flex-start;
     }
-    #companies .left input {
-        width: 200px;
+    #clientCode {
+        width: 100px !important;
+    }
+    #firmNum {
+        height: 20px !important;
+    }
+    #firmName,
+    #firmStreet,
+    #firmAddress {
+        width: 350px;
         font-family: Candara !important;
-        font-size: 1.2em !important;
+        font-size: 1.4em !important;
+        letter-spacing: -0.2px;
         font-weight: bold;
     }   
-    #companies .right>div {
-        margin-top: 10px;
-    } 
-    #companies .right input {
-        margin-top: 4px;
-    } 
-    #companies .right .firm-code {
-        margin-top: 0;
-    } 
-    #companies .right .firm-code input {
-        height: 19px;
-        width: 45px;
-        margin-left: -15px;
+    #firmName {
+        margin-top: 8px;
+    }
+    #firmAddress {
+        margin-bottom: 8px;
     }
     #data {
-        width: 400px;
+        width: 430px;
     }
     #data .row {
         margin-bottom: 4px;
@@ -444,10 +434,18 @@ input#vat {
         margin-bottom: 0;
     }
     #data .row p {
-        min-width: 160px;
+        width: 150px;
         padding-top: 0;
         padding-bottom: 6px;
-        margin-right: 20px;
+        margin-right: 10px;
+    }
+    #data .row input {
+        height: 20px;
+        width: 250px;
+    }
+    #location {
+        width: 180px !important;
+        margin-bottom: 5px;
     }
     #data .row #noteNum {
         font-weight: bolder;
@@ -455,7 +453,7 @@ input#vat {
     }    
     #data .row .note-code-2 {
         margin-top: 0;
-        width: 95%;
+        width: 80%;
     }
     .table-container {
         margin-top: 30px;

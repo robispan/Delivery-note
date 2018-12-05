@@ -67,7 +67,7 @@ function animate(el) {
 	});
 }
 
-// Display Delivery note code (top right) 
+// Display delivery note code (top right) 
 function displayCode(code) {
 	const today = new Date();
 	const year = today.getFullYear();
@@ -160,6 +160,24 @@ function formatDate() {
 	}
 }
 
+function formatUnits() {
+    // Format input
+    const val = event.target.value;
+    switch (val) {
+        case '1':
+            event.target.value = locale.piece;
+            break;
+        case '2':
+            event.target.value = locale.ton;
+            break;
+        case '3':
+            event.target.value = locale.kg;
+            break;
+    }
+    // Remove focus out handler
+    $(event.target).off();
+}
+
 function getNewPosition(keyCode, pos) {
 
 	// Get number of rows in table
@@ -241,7 +259,7 @@ function localizeHTML(lang) {
 	}
 }
 
-// Navigating with arrow keys
+// Navigate with arrow keys
 function navigateTable(event) {
 
 	// Check if key pressed is arrow key
@@ -333,7 +351,7 @@ function saveToolData(loadedData) {
 		if (!conf) return;
 	}
 
-	// Edit data
+	// Save to data variable
 	loadedData.tools[code1] = {
 		name: event.target.name.value,
 		code2: event.target.code2.value
